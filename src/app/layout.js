@@ -1,23 +1,23 @@
-import { Manrope, Noto_Sans } from 'next/font/google';
+import { Lato, Playfair_Display } from 'next/font/google';
 import './globals.css';
 
-const manrope = Manrope({ subsets: ['latin'], weight: ['300', '400', '700'] });
-const noto_sans = Noto_Sans({ subsets: ['latin'], weight: ['400', '700'] });
+const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700'] });
+const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata = {
-  title: 'Vitta Balance Pilates Studio - Clases de Pilates en Chile',
-  description: 'Vitta Balance Pilates Studio en Providencia, Santiago, Chile. Curso introductorio de Pilates para principiantes. Reserva tu prueba gratuita de 7 días.',
+  title: 'Clases de Pilates en Las Condes, Santiago | Vie Balance Pilates Studio',
+  description: 'Únete a Vie Balance en Las Condes, Santiago, para clases de Pilates personalizadas. Regístrate para una prueba gratuita con Tamara Puyet hoy.',
   openGraph: {
-    title: 'Vitta Balance Pilates Studio - Transforma tu Bienestar',
-    description: 'Clases de Pilates en Providencia, Santiago. Únete con nuestro curso introductorio y prueba gratuita.',
-    url: 'https://vittabalance.cl',
+    title: 'Clases de Pilates en Las Condes | Vie Balance',
+    description: 'Transforma tu salud con Pilates en Las Condes. Prueba gratuita con Tamara Puyet.',
+    url: 'https://viebalance.cl',
     type: 'website',
-    images: [{ url: '/images/og-image.jpg', alt: 'Vitta Balance Pilates Studio' }],
+    images: [{ url: '/images/og-image.jpg', alt: 'Vie Balance Pilates Studio Las Condes' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vitta Balance Pilates Studio',
-    description: 'Clases de Pilates en Santiago, Chile. Reserva tu prueba gratuita hoy.',
+    title: 'Clases de Pilates en Las Condes | Vie Balance',
+    description: 'Pilates para principiantes en Las Condes, Santiago. Reserva tu prueba gratuita.',
     images: ['/images/og-image.jpg'],
   },
 };
@@ -26,12 +26,33 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es-CL">
       <head>
-        <meta name="keywords" content="Pilates Providencia, Pilates Reformer Santiago, Clases de Pilates Chile, Pilates para principiantes, Vitta Balance" />
-        <meta name="author" content="Vitta Balance Pilates Studio" />
+        <meta name="keywords" content="clases de Pilates Las Condes, Pilates Santiago, Pilates para principiantes, Vie Balance, Tamara Puyet" />
+        <meta name="author" content="Vie Balance Pilates Studio" />
         <meta name="robots" content="index, follow" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Vie Balance Pilates Studio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Chesterton 8039",
+              "addressLocality": "Las Condes, Santiago",
+              "addressRegion": "Región Metropolitana",
+              "postalCode": "7560356",
+              "addressCountry": "CL"
+            },
+            "telephone": "+56 9 8765 4321",
+            "email": "info@viebalance.cl",
+            "url": "https://viebalance.cl",
+            "image": "https://viebalance.cl/images/og-image.jpg",
+            "description": "Estudio de Pilates en Las Condes, Santiago, con clases personalizadas lideradas por Tamara Puyet."
+          })}
+        </script>
       </head>
-      <body className={`${manrope.className} bg-white text-gray-800 min-h-screen`}>
+      <body className={`${lato.className} bg-white text-gray-800 min-h-screen`}>
         {children}
       </body>
     </html>
