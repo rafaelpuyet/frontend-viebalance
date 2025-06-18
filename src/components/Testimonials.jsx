@@ -1,30 +1,30 @@
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-blue-soft/10">
+    <section className="py-20 bg-cream-beige">
       <div className="container mx-auto px-6 fade-in">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Lo que Dicen Nuestros Alumnos de Pilates en Chile</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-dark-moss">Lo que Dicen Nuestros Alumnos en Las Condes</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          <blockquote className="bg-white p-8 rounded-xl shadow-lg hover-scale">
+          <blockquote className="bg-cream-white p-8 rounded-xl shadow-lg hover-scale">
             <div className="flex mb-4">
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
             </div>
-            <p className="italic text-lg mb-4">"Este curso de Pilates en Santiago cambió mi vida. Me siento más fuerte, flexible y mi dolor de espalda casi desapareció. ¡Elena es la mejor instructora en Providencia!"</p>
-            <footer className="font-semibold">– Sofía C., Providencia, Santiago</footer>
+            <p className="italic text-lg mb-4 text-medium-text">"Las clases con Tamara en Las Condes cambiaron mi vida. Me siento más fuerte y mi dolor de espalda casi desapareció. ¡Tamara es increíble!"</p>
+            <footer className="font-semibold text-dark-moss">– Sofía C., Las Condes, Santiago</footer>
           </blockquote>
-          <blockquote className="bg-white p-8 rounded-xl shadow-lg hover-scale">
+          <blockquote className="bg-cream-white p-8 rounded-xl shadow-lg hover-scale">
             <div className="flex mb-4">
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
-              <span class="material-icons-outlined text-yellow-500 text-xl">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
+              <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
             </div>
-            <p className="italic text-lg mb-4">"Dudaba al principio, pero este curso de Pilates en Viña del Mar superó todas mis expectativas. Es relajante y efectivo. ¡Recomendado para todos en Chile!"</p>
-            <footer className="font-semibold">– Martín B., Viña del Mar</footer>
+            <p className="italic text-lg mb-4 text-medium-text">"La clase gratuita con Tamara superó mis expectativas. Es relajante y efectivo. ¡100% recomendado!"</p>
+            <footer className="font-semibold text-dark-moss">– Martín B., Las Condes, Santiago</footer>
           </blockquote>
         </div>
         <script type="application/ld+json">
@@ -41,10 +41,10 @@ export default function Testimonials() {
                 "@type": "Person",
                 "name": "Sofía C."
               },
-              "reviewBody": "Este curso de Pilates en Santiago cambió mi vida. Me siento más fuerte, flexible y mi dolor de espalda casi desapareció. ¡Elena es la mejor instructora en Providencia!",
+              "reviewBody": "Las clases con Tamara en Las Condes cambiaron mi vida. Me siento más fuerte y mi dolor de espalda casi desapareció. ¡Tamara es increíble!",
               "itemReviewed": {
                 "@type": "LocalBusiness",
-                "name": "Vitta Balance Pilates Studio"
+                "name": "Vie Balance Pilates Studio"
               }
             }
           `}

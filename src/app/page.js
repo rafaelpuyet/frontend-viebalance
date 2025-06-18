@@ -4,7 +4,7 @@ import AboutInstructor from '../components/AboutInstructor';
 import Course from '../components/Course';
 import WhoIsFor from '../components/WhoIsFor';
 import Testimonials from '../components/Testimonials';
-import BeforeAfter from '../components/BeforeAfter';
+import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <Course />
       <WhoIsFor />
       <Testimonials />
-      <BeforeAfter />
+      <ContactForm />
       <Footer />
     </>
   );

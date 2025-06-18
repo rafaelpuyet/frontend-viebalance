@@ -1,24 +1,21 @@
 @import "tailwindcss";
+
+
+@theme {
+  --olive-green: #a1a075;
+  --terracotta: #d6a67a;
+  --cream-beige: #f5f1e6;
+  --golden-beige: #e2c792;
+  --grayish-green: #c3c7a6;
+  --soft-salmon: #efaf9e;
+  --dusty-pink: #d98e99;
+  --light-pink: #e8b6b7;
+  --cream-white: #f9f5ec;
+  --light-blue: #d3eaf2;
+  --dark-moss: #868554;
+  --dark-text: #333333;
+  --medium-text: #555555;
+  --light-text: #777777;
+}
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
 @import '@fortawesome/fontawesome-free/css/all.min.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --soft-blue: #a0cce8;
-  --warm-beige: #f5f5dc;
-  --dark-text: #1e293b;
-  --medium-text: #475569;
-  --light-text: #94a3b8;
-  --accent-blue: #3b82f6;
-  --accent-beige: #e7e5e4;
-}
-
-.icon-placeholder {
-  width: 24px;
-  height: 24px;
-  background-color: #e0e0e0;
-  border-radius: 50%;
-  display: inline-block;
-}

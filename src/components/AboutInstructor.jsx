@@ -1,57 +1,118 @@
 export default function AboutInstructor() {
   return (
     <>
-        <section class="py-16 px-6 md:px-10 bg-white" id="instructor-video">
-          <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-[var(--dark-text)] sm:text-4xl mb-10">
-              Conoce a Tu Instructora, Elena
-            </h2>
-            <div
-              class="aspect-video rounded-xl shadow-2xl overflow-hidden mx-auto max-w-3xl border-4 border-[var(--accent-beige)]">
-              <img alt="Instructora de Pilates Elena" class="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwNRLobezRlZ3pbylfvK_Wx6_btDSE281DiG4ns277zRFM9OeuS2dbjZrikJyrDmBqaD85aPXaE8XU-KiVvbsrYAUy7igm71WLA7cO64PzUQLfS3ISX0Qfz-qgVYIeuRJZucjX7hTfEqRbGhZR0Cr7HePzNVstFJuPIbs8y1mHHmMcViPV-5tTV1bzq6KRGnMhxmfa2dVXLoY66PshgvPGIvL06JJRuxYtu_mhy1anrWaPubmOUd1DpCGpg1r5FHiL5dsX3-hYaLHO" />
-            </div>
+      <section className="py-16 px-6 lg:px-8 bg-cream-white" id="instructor-video">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark-moss mb-4">
+            Conoce a Tu Instructora de Pilates
+          </h2>
+          <p className="text-lg text-medium-text mb-8 max-w-2xl mx-auto">
+            Descubre por qué más de 150 personas en Las Condes confían en la experiencia y pasión de Tamara por el Pilates Reformer
+          </p>
+          <div className="aspect-video rounded-xl shadow-2xl overflow-hidden mx-auto max-w-3xl border-4 border-grayish-green">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/TU_VIDEO_ID?rel=0"
+              title="Tamara Puyet - Instructora de Pilates Reformer"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
           </div>
-        </section>
-        <section class="py-16 px-6 md:px-10 bg-[var(--warm-beige)]" id="about">
-          <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-            <div class="order-2 md:order-1">
-              <h2 class="text-3xl font-bold tracking-tight text-[var(--dark-text)] sm:text-4xl mb-6">
-                Acerca de Elena Rodríguez
-              </h2>
-              <p class="text-[var(--medium-text)] text-lg mb-4">
-                Elena es una instructora de Pilates certificada con más de 10 años de experiencia, dedicada a ayudar a
-                las personas a descubrir la alegría y los beneficios del movimiento consciente en Chile.
+        </div>
+      </section>
+      
+      <section className="py-16 px-6 lg:px-8 bg-gradient-to-b from-cream-beige to-cream-white" id="sobre-nosotros">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-dark-moss mb-4">
+              Tamara Puyet Cerda
+            </h2>
+            <p className="text-terracotta text-lg font-semibold mb-4">
+              Kinesióloga e Instructora Certificada de Pilates Reformer
+            </p>
+            
+            <p className="text-medium-text text-lg mb-4">
+              Apasionada por el movimiento y el bienestar, me especializo en <strong>Pilates Reformer</strong> para ayudar a las personas a transformar su cuerpo y mejorar su calidad de vida a través del ejercicio consciente y personalizado.
+            </p>
+            
+            <p className="text-medium-text text-lg mb-6">
+              Mi enfoque es completamente personalizado: cada clase está diseñada específicamente para ti, tus objetivos y tu nivel. Con certificación internacional en Pilates Reformer, formación en kinesiología y formación continua, te ofrezco una experiencia única en nuestro estudio en Las Condes.
+            </p>
+            
+            <div className="bg-cream-white/70 border-l-4 border-grayish-green p-4 rounded-lg mb-6">
+              <p className="text-medium-text italic">
+                "El Pilates Reformer permite un trabajo más preciso y efectivo. Mi misión es ayudarte a descubrir la fuerza que llevas dentro, con resultados que se sienten desde la primera clase."
               </p>
-              <p class="text-[var(--medium-text)] text-lg mb-6">
-                Su filosofía de enseñanza se centra en crear un ambiente de apoyo y aliento donde cada estudiante se
-                sienta empoderado. El enfoque de Elena se basa en la orientación personalizada, asegurando que
-                comprendas los principios fundamentales del Pilates y cómo aplicarlos eficazmente para obtener
-                resultados duraderos.
-              </p>
-              <ul class="space-y-2 text-[var(--medium-text)]">
-                <li class="flex items-center">
-                  <span class="material-icons-outlined text-[var(--accent-blue)] mr-2">check_circle</span> Profesional
-                  de Pilates Certificada
-                </li>
-                <li class="flex items-center">
-                  <span class="material-icons-outlined text-[var(--accent-blue)] mr-2">check_circle</span> Especialista
-                  en niveles principiante a intermedio
-                </li>
-                <li class="flex items-center">
-                  <span class="material-icons-outlined text-[var(--accent-blue)] mr-2">check_circle</span> Apasionada
-                  por el bienestar integral
-                </li>
-              </ul>
             </div>
-            <div class="order-1 md:order-2">
-              <div class="rounded-xl shadow-2xl overflow-hidden aspect-square max-w-md mx-auto">
-                <img alt="Elena Rodríguez, Instructora de Pilates" class="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmswsCNf_jsV5hrwwNvc6sCwcD2otwf58Jh2qTN5w9KEPZvkZL93ssMtDR0CQoZHgXGf9cN7KKyGkC10RGjElBBxBXOXKRK0_Ef6o7FChNmvBtYni_hxm_-0lQC1_ekdmv9jMfFQvrqayH7UzU8hPm_-EkWKTlEydLlIsi8AKxGjmkqj4Q3_vKfHuIGEU-fYjK1YcGwRVzDRrA_e_czMJ445C37NbgaO6yOYmI8mAqLyfoxh0Eqy2cbbpyDBbwQvPf_SLWm5U4jnRx" />
+            
+            <ul className="space-y-3 text-medium-text mb-6">
+              <li className="flex items-center">
+                <div className="flex-shrink-0 w-6 h-6 bg-light-pink rounded-full flex items-center justify-center mr-3">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Kinesióloga titulada
+              </li>
+              <li className="flex items-center">
+                <div className="flex-shrink-0 w-6 h-6 bg-light-pink rounded-full flex items-center justify-center mr-3">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Instructora Certificada en Pilates Reformer
+              </li>
+              <li className="flex items-center">
+                <div className="flex-shrink-0 w-6 h-6 bg-light-pink rounded-full flex items-center justify-center mr-3">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Formación continua con instructores internacionales
+              </li>
+            </ul>
+            
+            <div className="bg-gradient-to-r from-light-pink to-soft-salmon border-2 border-grayish-green rounded-lg p-6 mb-6">
+              <div className="text-center">
+                <p className="text-sm text-dark-moss font-semibold mb-2">OFERTA ESPECIAL PARA NUEVOS ALUMNOS</p>
+                <div className="flex items-center justify-center gap-4 mb-3">
+                  <span className="text-2xl text-light-text line-through">$25.000</span>
+                  <span className="text-4xl font-bold text-terracotta">GRATIS</span>
+                </div>
+                <p className="text-sm text-medium-text">Clase de Pilates Reformer Personalizada • 60 minutos</p>
               </div>
             </div>
+            
+            <div className="mt-8">
+              <a 
+                href="#contacto" 
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-terracotta hover:bg-dark-moss text-cream-white text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-opacity-50"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Reserva tu Clase GRATUITA
+              </a>
+              <p className="text-xs text-light-text mt-2 text-center sm:text-left">
+                ⏰ Solo por tiempo limitado • Sin compromiso • Valor real $25.000
+              </p>
+            </div>
           </div>
-        </section>
-        </>
+          
+          <div className="order-1 md:order-2">
+            <div className="rounded-xl shadow-2xl overflow-hidden aspect-square max-w-md mx-auto">
+              <img 
+                alt="Tamara Puyet - Instructora especialista en Pilates Reformer Las Condes" 
+                className="w-full h-full object-cover"
+                src="/tamara.png"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

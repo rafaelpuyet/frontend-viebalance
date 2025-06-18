@@ -1,24 +1,136 @@
+"use client"
 export default function Hero() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contacto');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section
-      className="relative py-20 px-6 md:px-10 md:py-32 bg-gradient-to-br from-[var(--soft-blue)] to-[var(--warm-beige)]">
-      <div className="absolute inset-0 opacity-20"
-        style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEQJOprlJq5mEza32QJoVy6WPVmaZXQ6dva8EsANKT4Mm_cQtSE5HDI4k1iDRcPHkmO1qQmjI-mr8C_R4ZlfVwQOb0uyIVO0KGujw2A2f0Msr1IpWnzECpYksubBITeLAsfKlt1YYb9r2adskBbq09ga4fixq6MA1HPB4PbT7cCvuN70-vFaCg7lXK80eKaqDBwDSUhwruanN7N1f5QWpyhh30pV0qPVFi8FkHD2zzb4Ov7hRsCx70qoVcBR-iYp6ao2kT1HgHYI8")', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+    <section className="relative py-20 px-6 lg:px-8 bg-gradient-to-b from-cream-beige to-cream-white">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" 
+          style={{ 
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23000000" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="3"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")', 
+            backgroundSize: '60px 60px' 
+          }}>
+        </div>
       </div>
-      <div className="relative max-w-3xl mx-auto text-center">
-        <h1
-          className="text-5xl font-extrabold leading-tight tracking-tighter text-[var(--dark-text)] sm:text-6xl md:text-7xl">
-          Encuentra Tu <span className="text-[var(--accent-blue)]">Equilibrio</span> con Pilates en Chile
-        </h1>
-        <p className="mt-8 text-xl leading-relaxed text-[var(--medium-text)] sm:text-2xl">
-          Descubre el poder transformador del Pilates con nuestro curso introductorio. Fortalece tu cuerpo, calma tu
-          mente y mejora tu bienestar general. Clases en Santiago y principales regiones de Chile.
-        </p>
-        <div className="mt-12">
-          <button
-            className="flex w-full sm:w-auto min-w-[200px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-10 bg-[var(--accent-blue)] text-white text-lg font-semibold tracking-wide shadow-xl hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mx-auto">
-            <span className="truncate">Inscríbete al Curso Ahora</span>
-          </button>
+      
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-flex items-center bg-light-pink border border-grayish-green rounded-full px-4 py-2 mb-8">
+              <svg className="w-5 h-5 text-dark-moss mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l5-5z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm font-medium text-dark-moss">Instructora Certificada • Pilates Reformer</span>
+            </div>
+
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-dark-moss leading-tight mb-6">
+              Pilates Reformer
+              <br />
+              <span className="text-terracotta">Personalizado</span>
+              <br />
+              en Las Condes
+            </h1>
+
+            <p className="text-xl text-medium-text leading-relaxed mb-8 max-w-lg">
+              Fortalece tu core, mejora tu postura y transforma tu cuerpo con 
+              <strong> clases personalizadas</strong> en nuestro estudio boutique.
+            </p>
+
+            <div className="space-y-4 mb-10">
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-6 h-6 bg-light-pink rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <h3 className="font-semibold text-dark-moss">Clases completamente personalizadas</h3>
+                  <p className="text-medium-text text-sm">Rutinas adaptadas a tu nivel y objetivos específicos</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-6 h-6 bg-light-pink rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <h3 className="font-semibold text-dark-moss">Equipos Reformer de última generación</h3>
+                  <p className="text-medium-text text-sm">Tecnología profesional para máximos resultados</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-6 h-6 bg-light-pink rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <h3 className="font-semibold text-dark-moss">Ambiente exclusivo y relajante</h3>
+                  <p className="text-medium-text text-sm">Estudio boutique diseñado para tu bienestar</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-light-pink to-soft-salmon rounded-2xl p-6 mb-8">
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-dark-moss mb-2">Primera Clase de Prueba</h3>
+                <div className="text-2xl font-bold text-terracotta mb-2">Gratis</div>
+                <p className="text-sm text-medium-text mb-4">
+                  Conoce nuestro método y descubre el poder del Pilates Reformer
+                </p>
+                <p className="text-xs text-light-text">
+                  * Promoción válida para nuevos alumnos
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button 
+                onClick={scrollToContact}
+                className="flex-1 bg-terracotta hover:bg-dark-moss text-cream-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Reservar Clase de Prueba
+              </button>
+            </div>
+          </div>
+
+          <div className="lg:pl-8">
+            <div className="relative">
+              <img 
+                src="/hero.png"
+                alt="Estudio Vie Balance - Pilates Reformer en Las Condes"
+                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
+                loading="lazy"
+              />
+              
+              <div className="absolute bottom-4 right-4 bg-cream-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
+                <div className="flex items-center mb-2">
+                  <div className="flex text-soft-salmon mr-2">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-sm font-semibold text-dark-moss">4.9/5</span>
+                </div>
+                <p className="text-sm text-medium-text">
+                  <strong>150+ alumnos</strong> han transformado su cuerpo y bienestar con nuestras clases.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

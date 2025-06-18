@@ -1,55 +1,100 @@
 export default function Course() {
   return (
-        <section class="py-16 px-6 md:px-10 bg-white" id="course">
-          <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl font-bold tracking-tight text-[var(--dark-text)] sm:text-4xl">
-                Curso de Introducción al Pilates
-              </h2>
-              <p class="mt-4 text-lg text-[var(--medium-text)] max-w-2xl mx-auto">
-                Nuestro Curso de Introducción al Pilates está perfectamente diseñado para principiantes y aquellos que
-                buscan refinar sus habilidades fundamentales en Chile. Aprende los principios básicos del Pilates,
-                mejora la postura y desarrolla fuerza y flexibilidad en un ambiente de apoyo.
-              </p>
+    <section className="py-16 px-6 md:px-10 bg-cream-white" id="course">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-dark-moss sm:text-4xl">
+            Pilates Reformer: La Experiencia Completa
+          </h2>
+          <p className="mt-4 text-lg text-medium-text max-w-2xl mx-auto">
+            Descubre los beneficios únicos del <strong>Pilates Reformer</strong> en nuestro estudio en Las Condes. 
+            Equipamiento profesional y atención personalizada para resultados excepcionales.
+          </p>
+          
+          <div className="mt-6 inline-flex items-center bg-gradient-to-r from-light-pink to-soft-salmon border-2 border-grayish-green rounded-lg px-6 py-3">
+            <span className="material-icons-outlined text-dark-moss mr-2">info</span>
+            <span className="text-dark-moss font-semibold">Valor regular: $25.000 por sesión • Tu primera clase: GRATIS</span>
+          </div>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+          <div>
+            <h3 className="text-2xl font-semibold text-dark-moss mb-6">¿Por qué Pilates Reformer?</h3>
+            <ul className="space-y-4 text-medium-text">
+              <li className="flex items-start">
+                <span className="material-icons-outlined text-terracotta mr-3 mt-1" aria-label="Resistencia variable">fitness_center</span>
+                <div>
+                  <strong>Resistencia Variable:</strong> El sistema de poleas y resortes permite ajustar la resistencia perfectamente a tu nivel y necesidades específicas.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="material-icons-outlined text-terracotta mr-3 mt-1" aria-label="Movimientos precisos">precision_manufacturing</span>
+                <div>
+                  <strong>Movimientos Precisos:</strong> La máquina guía tus movimientos, asegurando una técnica correcta y resultados más efectivos.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="material-icons-outlined text-terracotta mr-3 mt-1" aria-label="Rehabilitación avanzada">healing</span>
+                <div>
+                  <strong>Rehabilitación Avanzada:</strong> Ideal para recuperación de lesiones y fortalecimiento específico con supervisión kinesiológica.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="material-icons-outlined text-terracotta mr-3 mt-1" aria-label="Resultados acelerados">trending_up</span>
+                <div>
+                  <strong>Resultados Acelerados:</strong> Notarás mejoras en fuerza, flexibilidad y postura desde las primeras sesiones.
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-xl shadow-lg overflow-hidden aspect-video">
+            <img alt="Pilates Reformer en acción en Las Condes" className="w-full h-full object-cover"
+              src="/images/reformer.webp" loading="lazy" />
+          </div>
+        </div>
+        
+        <div className="bg-gradient-to-r from-light-pink to-soft-salmon rounded-2xl p-8 mb-8">
+          <h3 className="text-2xl font-semibold text-dark-moss text-center mb-6">
+            Tu Primera Clase GRATUITA Incluye:
+          </h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="bg-cream-white/70 rounded-lg p-4">
+              <span className="material-icons-outlined text-terracotta text-3xl block mb-2">assessment</span>
+              <h4 className="font-semibold text-sm mb-1">Evaluación Inicial</h4>
+              <p className="text-xs text-medium-text">Análisis postural y de movimiento</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-              <div>
-                <h3 class="text-2xl font-semibold text-[var(--dark-text)] mb-4">Lo que Aprenderás:</h3>
-                <ul class="space-y-3 text-[var(--medium-text)]">
-                  <li class="flex items-start">
-                    <span class="material-icons-outlined text-[var(--accent-blue)] mr-2 mt-1">fitness_center</span>
-                    <span><strong>Principios Fundamentales del Pilates:</strong> Domina la respiración, el control, la
-                      centralización, la precisión y el flujo.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="material-icons-outlined text-[var(--accent-blue)] mr-2 mt-1">self_improvement</span>
-                    <span><strong>Ejercicios de Fortalecimiento del Core:</strong> Desarrolla un core fuerte y estable
-                      para una mejor postura y reducción del dolor de espalda.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="material-icons-outlined text-[var(--accent-blue)] mr-2 mt-1">spa</span>
-                    <span><strong>Conexión Mente-Cuerpo:</strong> Mejora tu conciencia y aprende a moverte con intención
-                      y gracia.</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="material-icons-outlined text-[var(--accent-blue)] mr-2 mt-1">accessibility_new</span>
-                    <span><strong>Mayor Flexibilidad y Movilidad:</strong> Mejora tu rango de movimiento y libertad
-                      física general.</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="rounded-xl shadow-lg overflow-hidden aspect-video">
-                <img alt="Clase de Pilates en progreso" class="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKsp1TLI8lFVLc_GyYNeaVrix4epwfW32fPzNbvi6lMdmJ3rGLS27IoMIK741OR05qHaYPygAy_xd9HqEzMybr8YSgZI9H-fkqZ6y2FICPW-5qyqSArTrw8Ei2Iq28ZWVbIaTDSvDOHUGAo0dtpv2NROV44mGBGo8hk1INwlIhUcNuR61-d0P3_jX9lM-0_lIYqdltBQdpA4CYceami_Uyiqi6jUFmsEhQq97oGLO-sXXCdakl6b28APks6vBKnlO2X4eUpPVURhoc" />
-              </div>
+            <div className="bg-cream-white/70 rounded-lg p-4">
+              <span className="material-icons-outlined text-terracotta text-3xl block mb-2">fitness_center</span>
+              <h4 className="font-semibold text-sm mb-1">Sesión Reformer</h4>
+              <p className="text-xs text-medium-text">60 minutos de entrenamiento personalizado</p>
             </div>
-            <div class="text-center">
-              <button
-                class="flex mx-auto min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-10 bg-[var(--accent-blue)] text-white text-lg font-semibold tracking-wide shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                <span class="truncate">Comienza Tu Viaje de Pilates</span>
-              </button>
+            <div className="bg-cream-white/70 rounded-lg p-4">
+              <span className="material-icons-outlined text-terracotta text-3xl block mb-2">psychology</span>
+              <h4 className="font-semibold text-sm mb-1">Plan Personalizado</h4>
+              <p className="text-xs text-medium-text">Programa adaptado a tus objetivos</p>
+            </div>
+            <div className="bg-cream-white/70 rounded-lg p-4">
+              <span className="material-icons-outlined text-terracotta text-3xl block mb-2">support_agent</span>
+              <h4 className="font-semibold text-sm mb-1">Seguimiento</h4>
+              <p className="text-xs text-medium-text">Recomendaciones para continuar</p>
             </div>
           </div>
-        </section>
+          <div className="text-center mt-6">
+            <p className="text-lg font-bold text-dark-moss">Valor Total: $25.000</p>
+            <p className="text-2xl font-bold text-terracotta">Hoy: COMPLETAMENTE GRATIS</p>
+          </div>
+        </div>
+        
+        <div className="text-center">
+          <button className="flex mx-auto min-w-[260px] max-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-10 bg-terracotta text-cream-white text-lg font-semibold tracking-wide shadow-lg hover:bg-dark-moss transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-opacity-50">
+            <span className="material-icons-outlined mr-2">schedule</span>
+            <span className="truncate">Reservar Mi Clase Gratuita</span>
+          </button>
+          <p className="text-sm text-light-text mt-3">
+            ⏰ Oferta por tiempo limitado • Sin compromisos • Cancelación gratuita
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
