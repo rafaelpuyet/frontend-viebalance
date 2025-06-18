@@ -1,21 +1,58 @@
 @import "tailwindcss";
 
-
-@theme {
-  --olive-green: #a1a075;
-  --terracotta: #d6a67a;
-  --cream-beige: #f5f1e6;
-  --golden-beige: #e2c792;
-  --grayish-green: #c3c7a6;
-  --soft-salmon: #efaf9e;
-  --dusty-pink: #d98e99;
-  --light-pink: #e8b6b7;
-  --cream-white: #f9f5ec;
-  --light-blue: #d3eaf2;
-  --dark-moss: #868554;
-  --dark-text: #333333;
-  --medium-text: #555555;
-  --light-text: #777777;
-}
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-olive-green: #a1a075;
+  --color-terracotta: #d6a67a;
+  --color-cream-beige: #f5f1e6;
+  --color-golden-beige: #e2c792;
+  --color-grayish-green: #c3c7a6;
+  --color-soft-salmon: #efaf9e;
+  --color-dusty-pink: #d98e99;
+  --color-light-pink: #e8b6b7;
+  --color-cream-white: #f9f5ec;
+  --color-light-blue: #d3eaf2;
+  --color-dark-moss: #868554;
+  --color-dark-text: #333333;
+  --color-medium-text: #555555;
+  --color-light-text: #777777;
+  --color-accent-orange: #f97316;
+}
+
+@layer utilities {
+  .hover-scale {
+    transition: transform 0.3s ease-in-out;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .bg-cream-gradient {
+    background: linear-gradient(to bottom, var(--color-cream-white), var(--color-cream-beige));
+  }
+  .border-terracotta {
+    border-color: var(--color-terracotta);
+  }
+  .text-olive-green {
+    color: var(--color-olive-green);
+  }
+}
+
+h1, h2, h3, h4 {
+  @apply text-gray-900;
+}
+p, li {
+  @apply text-gray-700;
+}
