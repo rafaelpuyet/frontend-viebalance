@@ -3,10 +3,12 @@ import { useState } from 'react';
 
 export default function TrialClassForm() {
   const [formData, setFormData] = useState({
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
     source: 'instagram',
+    preferred_time: 'morning',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,20 +17,30 @@ export default function TrialClassForm() {
 
   const validateField = (name, value) => {
     const newErrors = { ...errors };
-    if (name === 'name' && value.trim().length < 2) {
-      newErrors.name = 'El nombre debe tener al menos 2 caracteres';
-    } else if (name === 'name') {
-      delete newErrors.name;
+    if (name === 'first_name' && value.trim().length < 2) {
+      newErrors.first_name = 'El nombre debe tener al menos 2 caracteres';
+    } else if (name === 'first_name') {
+      delete newErrors.first_name;
+    }
+    if (name === 'last_name' && value.trim().length < 2) {
+      newErrors.last_name = 'El apellido debe tener al menos 2 caracteres';
+    } else if (name === 'last_name') {
+      delete newErrors.last_name;
     }
     if (name === 'email' && !/^[^\s@]+@([^\s@.,]+\.)+[^\s@,.]{2,}$/.test(value)) {
       newErrors.email = 'Ingresa un correo electrónico válido';
     } else if (name === 'email') {
       delete newErrors.email;
     }
-    if (name === 'phone' && !/^\+?\d{8,12}$/.test(value.replace(/\s/g, ''))) {
-      newErrors.phone = 'Ingresa un número de teléfono válido';
+    if (name === 'phone' && !/^\d{8,9}$/.test(value.replace(/\s/g, ''))) {
+      newErrors.phone = 'Ingresa un número de teléfono válido (8-9 dígitos)';
     } else if (name === 'phone') {
       delete newErrors.phone;
+    }
+    if (name === 'preferred_time' && !['morning', 'afternoon'].includes(value)) {
+      newErrors.preferred_time = 'Selecciona un horario válido';
+    } else if (name === 'preferred_time') {
+      delete newErrors.preferred_time;
     }
     setErrors(newErrors);
   };
@@ -38,16 +50,35 @@ export default function TrialClassForm() {
     if (Object.keys(errors).length > 0) return;
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setShowSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        source: 'instagram',
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          phone: `+56${formData.phone.replace(/\s/g, '')}`,
+        }),
       });
-    }, 2000);
+      const data = await response.json();
+      if (response.ok) {
+        setIsSubmitting(false);
+        setShowSuccess(true);
+        setFormData({
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          source: 'instagram',
+          preferred_time: 'morning',
+        });
+      } else {
+        setIsSubmitting(false);
+        alert(data.error || 'Error al enviar el formulario. Intenta de nuevo.');
+      }
+    } catch (error) {
+      setIsSubmitting(false);
+      alert('Error al enviar el formulario. Intenta de nuevo.');
+    }
   };
 
   const handleChange = (e) => {
@@ -100,26 +131,59 @@ export default function TrialClassForm() {
           className="bg-cream-white rounded-xl shadow-lg p-8 border-terracotta"
         >
           <div className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-                Nombre Completo *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent ${
-                  errors.name ? 'border-red-500' : 'border-cream-white'
-                }`}
-                placeholder="Tu nombre completo"
-                aria-describedby={errors.name ? 'name-error' : undefined}
-              />
-              {errors.name && (
-                <p id="name-error" className="text-red-500 text-xs mt-1">{errors.name}</p>
-              )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="first_name"
+                  className="block text-sm font-semibold text-gray-900 mb-2"
+                >
+                  Nombre *
+                </label>
+                <input
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  required
+                  value={formData.first_name}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 bg-white border border-cream-white rounded-xl shadow-sm focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                    errors.first_name ? 'border-red-500' : ''
+                  }`}
+                  placeholder="Tu nombre"
+                  aria-describedby={errors.first_name ? 'first_name-error' : undefined}
+                />
+                {errors.first_name && (
+                  <p id="first_name-error" className="text-red-500 text-xs mt-1">
+                    {errors.first_name}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label
+                  htmlFor="last_name"
+                  className="block text-sm font-semibold text-gray-900 mb-2"
+                >
+                  Apellido *
+                </label>
+                <input
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  required
+                  value={formData.last_name}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 bg-white border border-cream-white rounded-xl shadow-sm focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                    errors.last_name ? 'border-red-500' : ''
+                  }`}
+                  placeholder="Tu apellido"
+                  aria-describedby={errors.last_name ? 'last_name-error' : undefined}
+                />
+                {errors.last_name && (
+                  <p id="last_name-error" className="text-red-500 text-xs mt-1">
+                    {errors.last_name}
+                  </p>
+                )}
+              </div>
             </div>
 
             <div>
@@ -133,8 +197,8 @@ export default function TrialClassForm() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent ${
-                  errors.email ? 'border-red-500' : 'border-cream-white'
+                className={`w-full px-4 py-3 bg-white border border-cream-white rounded-xl shadow-sm focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                  errors.email ? 'border-red-500' : ''
                 }`}
                 placeholder="tu@email.com"
                 aria-describedby={errors.email ? 'email-error' : undefined}
@@ -148,19 +212,24 @@ export default function TrialClassForm() {
               <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
                 Teléfono *
               </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent ${
-                  errors.phone ? 'border-red-500' : 'border-cream-white'
-                }`}
-                placeholder="+56 9 1234 5678"
-                aria-describedby={errors.phone ? 'phone-error' : undefined}
-              />
+              <div className="flex items-center">
+                <span className="inline-flex items-center px-4 py-3 bg-gray-100 border border-r-0 border-cream-white rounded-l-xl text-gray-900 text-sm">
+                  +56
+                </span>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 bg-white border border-cream-white rounded-r-xl shadow-sm focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 text-gray-900 placeholder-gray-400 ${
+                    errors.phone ? 'border-red-500' : ''
+                  }`}
+                  placeholder="912345678"
+                  aria-describedby={errors.phone ? 'phone-error' : undefined}
+                />
+              </div>
               {errors.phone && (
                 <p id="phone-error" className="text-red-500 text-xs mt-1">{errors.phone}</p>
               )}
@@ -175,7 +244,9 @@ export default function TrialClassForm() {
                 name="source"
                 value={formData.source}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-cream-white rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-transparent"
+                className={`w-full px-4 py-3 bg-white border border-gray-300 rounded-xl shadow-sm text-gray-900 focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 appearance-none ${
+                  errors.source ? 'border-red-500' : ''
+                }`}
               >
                 <option value="instagram">Instagram</option>
                 <option value="google">Google</option>
@@ -185,10 +256,36 @@ export default function TrialClassForm() {
               </select>
             </div>
 
+            <div>
+              <label
+                htmlFor="preferred_time"
+                className="block text-sm font-semibold text-gray-900 mb-2"
+              >
+                Horario Preferido *
+              </label>
+              <select
+                id="preferred_time"
+                name="preferred_time"
+                value={formData.preferred_time}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 bg-white border border-gray-300 rounded-xl shadow-sm text-gray-900 focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 appearance-none ${
+                  errors.preferred_time ? 'border-red-500' : ''
+                }`}
+              >
+                <option value="morning">Mañana</option>
+                <option value="afternoon">Tarde</option>
+              </select>
+              {errors.preferred_time && (
+                <p id="preferred_time-error" className="text-red-500 text-xs mt-1">
+                  {errors.preferred_time}
+                </p>
+              )}
+            </div>
+
             <button
               type="submit"
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              className="w-full h-14 bg-accent-orange text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-terracotta transition-all duration-200 flex items-center justify-center"
+              className="w-full h-14 bg-accent-orange text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-terracotta transition-all duration-200 flex items-center justify-center"
             >
               {isSubmitting ? (
                 <>

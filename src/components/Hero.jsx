@@ -1,22 +1,19 @@
 "use client"
-export default function Hero() {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contacto');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+import Image from 'next/image'
+import Link from 'next/link'
+import HeroIMG from '@public/hero.png'
 
+export default function Hero() {
   return (
-    <section className="relative py-20 px-6 lg:px-8 bg-cream-gradient">
+    <section className="relative py-10 px-6 lg:px-8 bg-cream-gradient">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" 
-          style={{ 
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g fill-opacity=0.1><circle cx=30 cy=30 r=3/></g></g></svg>")', 
-            backgroundSize: '60px 60px' 
+        <div className="absolute inset-0"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g fill-opacity=0.1><circle cx=30 cy=30 r=3/></g></g></svg>")',
+            backgroundSize: '60px 60px'
           }}></div>
       </div>
-      
+
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -36,8 +33,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl text-gray-700 leading-relaxed mb-8 max-w-lg">
-              Fortalece tu core, mejora tu postura y transforma tu cuerpo con 
-              <strong> clases personalizadas</strong> en nuestro estudio boutique.
+              Fortalece tu core, mejora tu postura y transforma tu cuerpo con
+              <strong> clases personalizadas</strong> en nuestro estudio.
             </p>
 
             <div className="space-y-4 mb-10">
@@ -71,14 +68,14 @@ export default function Hero() {
                 </div>
                 <div className="ml-4">
                   <h3 className="font-semibold text-gray-900">Ambiente exclusivo y relajante</h3>
-                  <p className="text-gray-600 text-sm">Estudio boutique diseñado para tu bienestar</p>
+                  <p className="text-gray-600 text-sm">Estudio diseñado para tu bienestar</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-golden-beige rounded-2xl p-6 mb-8 border border-terracotta">
               <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Primera Clase de Prueba</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Clase de Prueba</h3>
                 <div className="text-2xl font-bold text-accent-orange mb-2">Gratis</div>
                 <p className="text-sm text-gray-700 mb-4">
                   Conoce nuestro método y descubre el poder del Pilates Reformer
@@ -90,24 +87,24 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={scrollToContact}
+              <Link href="/trial-class"
                 className="flex-1 bg-accent-orange hover:bg-terracotta text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 Reservar Clase de Prueba
-              </button>
+              </Link>
             </div>
           </div>
 
           <div className="lg:pl-8">
             <div className="relative">
-              <img 
-                src="/hero.png"
-                alt="Estudio Vie Balance - Pilates Reformer en Las Condes"
+              <Image
+                src={HeroIMG}
                 className="rounded-2xl shadow-2xl w-full h-[500px] object-cover border-terracotta"
+                alt="Estudio Vie Balance - Pilates Reformer en Las Condes"
+                placeholder="blur"
                 loading="lazy"
               />
               <div className="absolute bottom-4 right-4 bg-cream-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">

@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import Instructor from '@public/tamara.png'
+
 export default function AboutInstructor() {
   return (
     <>
@@ -77,10 +80,11 @@ export default function AboutInstructor() {
 
           <div className="order-1 md:order-2">
             <div className="rounded-xl shadow-2xl overflow-hidden aspect-square max-w-md mx-auto border-terracotta">
-              <img
-                alt="Tamara Puyet - Instructora especialista en Pilates Reformer Las Condes"
+              <Image
+                src={Instructor}
                 className="w-full h-full object-cover"
-                src="/tamara.png"
+                alt="Tamara Puyet - Instructora especialista en Pilates Reformer Las Condes"
+                placeholder="blur"
                 loading="lazy"
               />
             </div>

@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Course() {
   return (
     <section className="py-16 px-6 md:px-10 bg-cream-white" id="course">
@@ -23,15 +25,15 @@ export default function Course() {
           </div>
 
           <div className="mt-8">
-            <a
-              href="#contacto"
+            <Link
+              href="/trial-class"
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-accent-orange hover:bg-terracotta text-white text-lg font-semibold rounded-lg shadow-lg transition-all duration-200"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               Reserva tu Clase GRATUITA
-            </a>
+            </Link>
             <p className="text-xs text-gray-600 mt-2 text-center sm:text-left">
               ⏰ Solo por tiempo limitado • Sin compromiso • Valor real $25.000
             </p>
@@ -107,10 +109,12 @@ export default function Course() {
         </div>
 
         <div className="text-center">
-          <button className="flex mx-auto min-w-[260px] max-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-10 bg-accent-orange text-white text-lg font-semibold tracking-wide shadow-lg hover:bg-terracotta transition-all duration-200">
-            <span className="material-icons-outlined mr-2">schedule</span>
-            <span className="truncate">Reservar Mi Clase Gratuita</span>
-          </button>
+          <Link href="/trial-class">
+            <button className="flex mx-auto min-w-[260px] max-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-10 bg-accent-orange text-white text-lg font-semibold tracking-wide shadow-lg hover:bg-terracotta transition-all duration-200">
+              <span className="material-icons-outlined mr-2">schedule</span>
+              <span className="truncate">Reservar Mi Clase Gratuita</span>
+            </button>
+          </Link>
           <p className="text-sm text-gray-600 mt-3">
             ⏰ Oferta por tiempo limitado • Sin compromisos • Cancelación gratuita
           </p>

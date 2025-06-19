@@ -1,12 +1,5 @@
 'use client'
 export default function WhoIsFor() {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contacto');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="py-16 px-6 md:px-10 bg-cream-beige" id="for-you">
       <div className="max-w-4xl mx-auto">
@@ -41,14 +34,6 @@ export default function WhoIsFor() {
             <span className="material-icons-outlined text-olive-green text-3xl mr-4 mt-1" aria-label="Conexión mente-cuerpo">psychology</span>
             <p className="text-gray-700 text-base leading-relaxed">Deseas construir una fuerte conexión mente-cuerpo.</p>
           </div>
-        </div>
-        <div className="mt-10 text-center">
-          <button
-            onClick={scrollToContact}
-            className="flex mx-auto min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-10 bg-accent-orange text-white text-lg font-semibold tracking-wide shadow-lg hover:bg-terracotta transition-all duration-200"
-          >
-            <span className="truncate">Reserva Tu Clase Gratuita</span>
-          </button>
         </div>
       </div>
     </section>
