@@ -72,7 +72,7 @@ export async function POST(req) {
       return new Response(JSON.stringify({ error: 'Error al guardar los datos' }), { status: 500 });
     }
 
-    // Enviar mensaje de WhatsApp con WAHA
+    /* Enviar mensaje de WhatsApp con WAHA
     try {
       const chatId = phone.replace('+', '') + '@c.us'; // e.g., +56912345678 -> 56912345678@c.us
       await axios.post(
@@ -92,7 +92,7 @@ export async function POST(req) {
     } catch (wahaError) {
       console.error('Error enviando mensaje de WhatsApp:', wahaError.message);
       // No fallar la respuesta principal si WAHA falla
-    }
+    }*/
 
     return new Response(JSON.stringify({ message: 'Formulario enviado con éxito' }), {
       status: 200,
