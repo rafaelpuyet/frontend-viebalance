@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import axios from 'axios';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -69,6 +70,28 @@ export async function POST(req) {
 
     if (error) {
       return new Response(JSON.stringify({ error: 'Error al guardar los datos' }), { status: 500 });
+    }
+
+    // Enviar mensaje de WhatsApp con WAHA
+    try {
+      const chatId = phone.replace('+', '') + '@c.us'; // e.g., +56912345678 -> 56912345678@c.us
+      await axios.post(
+        'http://localhost:3000/api/sendText',
+        {
+          chatId,
+          text: `¡Gracias por reservar tu clase gratuita en Vie Balance Pilates, ${first_name}! Tamara se contactará pronto.`,
+          session: 'default',
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            // Opcional: 'X-Api-Key': process.env.WAHA_API_KEY,
+          },
+        }
+      );
+    } catch (wahaError) {
+      console.error('Error enviando mensaje de WhatsApp:', wahaError.message);
+      // No fallar la respuesta principal si WAHA falla
     }
 
     return new Response(JSON.stringify({ message: 'Formulario enviado con éxito' }), {

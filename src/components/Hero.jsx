@@ -17,24 +17,15 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center bg-cream-beige border border-terracotta rounded-full px-4 py-2 mb-8">
-              <svg className="w-5 h-5 text-olive-green mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l5-5z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm font-medium text-olive-green">Instructora Certificada • Pilates Reformer</span>
-            </div>
-
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Pilates Reformer
+              Estudio de
+              <span className="text-accent-orange"> Pilates</span>
               <br />
-              <span className="text-accent-orange">Personalizado</span>
-              <br />
-              en Las Condes
+              reformer y maquinas
             </h1>
 
             <p className="text-xl text-gray-700 leading-relaxed mb-8 max-w-lg">
-              Fortalece tu core, mejora tu postura y transforma tu cuerpo con
-              <strong> clases personalizadas</strong> en nuestro estudio.
+              Trabaja de manera integral, activa todo tu cuerpo en cada clase, fortalece tu core y mejora tu postura.
             </p>
 
             <div className="space-y-4 mb-10">
@@ -45,8 +36,7 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="font-semibold text-gray-900">Clases completamente personalizadas</h3>
-                  <p className="text-gray-600 text-sm">Rutinas adaptadas a tu nivel y objetivos específicos</p>
+                  <h3 className="font-semibold text-gray-900">Clases grupales con kinesióloga</h3>
                 </div>
               </div>
               <div className="flex items-start">
@@ -56,8 +46,7 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="font-semibold text-gray-900">Equipos Reformer de última generación</h3>
-                  <p className="text-gray-600 text-sm">Tecnología profesional para máximos resultados</p>
+                  <h3 className="font-semibold text-gray-900">Entrena con la confianza de la experticia profesional. Contamos con clases de Pilates terapéutico dirigidas por una kinesióloga altamente calificada, asegurando que cada movimiento sea preciso, seguro y adaptado a tus necesidades.</h3>
                 </div>
               </div>
               <div className="flex items-start">
@@ -67,28 +56,24 @@ export default function Hero() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="font-semibold text-gray-900">Ambiente exclusivo y relajante</h3>
-                  <p className="text-gray-600 text-sm">Estudio diseñado para tu bienestar</p>
+                  <h3 className="font-semibold text-gray-900">Únete a una comunidad que te impulsa a crecer. En Vie Balance, no solo te unes a un estudio, te conviertes en parte de una comunidad de entusiastas del bienestar. Conéctate, comparte tus logros y siente la motivación de entrenar junto a personas que, como tú, buscan mejorar su calidad de vida, cuerpo y mente.</h3>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-golden-beige rounded-2xl p-6 mb-8 border border-terracotta">
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Clase de Prueba</h3>
-                <div className="text-2xl font-bold text-accent-orange mb-2">Gratis</div>
-                <p className="text-sm text-gray-700 mb-4">
-                  Conoce nuestro método y descubre el poder del Pilates Reformer
-                </p>
-                <p className="text-xs text-gray-600">
-                  * Promoción válida para nuevos alumnos
-                </p>
+              <div className="flex items-start">
+                <div className="flex-shrink-0 w-6 h-6 bg-cream-beige rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-dark-moss" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <h3 className="font-semibold text-gray-900">Transforma tu rutina en un momento de bienestar. En cada clase de Pilates en Vie Balance, no solo ejercitarás tu cuerpo, sino que te sumergirás en un espacio de conexión con tu mente, respiración y cuerpo. Lo más importante para nosotros como Vie Balance es el placer de moverse con conciencia, liberar tensiones y encontrar el balance que te acompañará después de salir del estudio.</h3>
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/trial-class"
-                className="flex-1 bg-accent-orange hover:bg-terracotta text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
+                className="flex-1 bg-accent-orange hover:bg-terracotta text-white font-semibold py-4 px-6 rounded-full transition-colors duration-200 flex items-center justify-center"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

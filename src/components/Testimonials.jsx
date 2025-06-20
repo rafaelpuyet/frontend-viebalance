@@ -2,7 +2,7 @@ export default function Testimonials() {
   return (
     <section className="py-20 bg-cream-white">
       <div className="container mx-auto px-6 fade-in">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Lo que Dicen Nuestros Alumnos en Las Condes</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Lo que Dicen Nuestros Alumnos en Vie Balance</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <blockquote className="bg-golden-beige p-8 rounded-xl shadow-lg hover-scale border-terracotta">
             <div className="flex mb-4">

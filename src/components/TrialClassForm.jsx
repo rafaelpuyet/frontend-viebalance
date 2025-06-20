@@ -13,6 +13,7 @@ export default function TrialClassForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [errors, setErrors] = useState({});
 
   const validateField = (name, value) => {
@@ -49,6 +50,7 @@ export default function TrialClassForm() {
     e.preventDefault();
     if (Object.keys(errors).length > 0) return;
     setIsSubmitting(true);
+    setErrorMessage('');
 
     try {
       const response = await fetch('/api/submit-form', {
@@ -73,11 +75,11 @@ export default function TrialClassForm() {
         });
       } else {
         setIsSubmitting(false);
-        alert(data.error || 'Error al enviar el formulario. Intenta de nuevo.');
+        setErrorMessage(data.error || 'Error al enviar el formulario. Por favor, intenta de nuevo.');
       }
     } catch (error) {
       setIsSubmitting(false);
-      alert('Error al enviar el formulario. Intenta de nuevo.');
+      setErrorMessage('Error al enviar el formulario. Por favor, intenta de nuevo.');
     }
   };
 
@@ -97,8 +99,7 @@ export default function TrialClassForm() {
             </span>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">¡Perfecto!</h2>
             <p className="text-lg text-gray-700 mb-6">
-              Hemos recibido tu solicitud. Tamara se contactará contigo en las próximas 24 horas para
-              coordinar tu clase gratuita.
+              {formData.first_name}, hemos recibido tu solicitud, en breve nos contactaremos contigo dentro de 24 horas.
             </p>
             <div className="bg-golden-beige rounded-lg p-4">
               <p className="text-sm text-gray-900">
@@ -130,6 +131,11 @@ export default function TrialClassForm() {
           onSubmit={handleSubmit}
           className="bg-cream-white rounded-xl shadow-lg p-8 border-terracotta"
         >
+          {errorMessage && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-6">
+              {errorMessage}
+            </div>
+          )}
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -285,7 +291,7 @@ export default function TrialClassForm() {
             <button
               type="submit"
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              className="w-full h-14 bg-accent-orange text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-terracotta transition-all duration-200 flex items-center justify-center"
+              className="w-full h-14 bg-accent-orange text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-terracotta transition-all duration-200 flex items-center justify-center cursor-pointer"
             >
               {isSubmitting ? (
                 <>

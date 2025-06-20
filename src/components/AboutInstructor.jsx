@@ -6,12 +6,6 @@ export default function AboutInstructor() {
     <>
       <section className="py-16 px-6 lg:px-8 bg-cream-white" id="instructor-video">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Conoce a Tu Instructora de Pilates
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Descubre por qué más de 150 personas en Las Condes confían en la experiencia y pasión de Tamara por el Pilates Reformer
-          </p>
           <div className="aspect-video rounded-xl shadow-2xl overflow-hidden mx-auto max-w-3xl border-4 border-terracotta">
             <iframe
               className="w-full h-full"
@@ -29,9 +23,12 @@ export default function AboutInstructor() {
       <section className="py-16 px-6 lg:px-8 bg-soft-salmon/20" id="sobre-nosotros">
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Conoce a Tu Instructora de Pilates
+          </h2>
+            <h5 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Tamara Puyet Cerda
-            </h2>
+            </h5>
             <p className="text-olive-green text-lg font-semibold mb-4">
               Kinesióloga e Instructora Certificada de Pilates Reformer
             </p>
