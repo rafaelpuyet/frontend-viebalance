@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Header from '@components/Header';
-import TrialClassForm from '@components/TrialClassForm';
-import Footer from '@components/Footer';
+import Header from '@components/pilates/Header';
+import TrialClassForm from '@components/pilates/TrialClassForm';
+import Footer from '@components/pilates/Footer';
 
 export default function TrialClassPage() {
   return (

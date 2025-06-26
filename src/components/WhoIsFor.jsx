@@ -10,7 +10,7 @@ export default function WhoIsFor() {
           <div className="flex items-start p-4 bg-cream-white rounded-lg shadow-md border-terracotta">
             <span
               className="material-icons-outlined text-olive-green text-xl-3 mr-4 mt-1" aria-label="Ejercicio de bajo impacto">accessibility_new</span>
-            <p className="text-gray-700 text-base leading-relaxed">Buscas un ejercicio de bajo impacto que te fortalezca y tonifique.</p>
+            <p className="text-gray-700 text-base leading-relaxed">Buscas un ejercicio de bajo impacto que te fortalezca y tonifique con bandas elásticas.</p>
           </div>
           <div className="flex items-start p-4 bg-cream-white rounded-lg shadow-md border-terracotta">
             <span
@@ -27,7 +27,7 @@ export default function WhoIsFor() {
             <p className="text-gray-700 text-base leading-relaxed">Estás listo/a para embarcarte en un viaje hacia un estilo de vida más saludable y activo.</p>
           </div>
           <div className="flex items-start p-4 bg-cream-white rounded-lg shadow-md border-terracotta">
-            <span className="material-icons-outlined text-olive-green text-3xl mr-4 mt-1" aria-label="Introducción a Pilates">school</span>
+            <span className="material-icons-outlined text-olive-green text-3xl mr-4 mt-1" aria-label="Introducción a Elastic Training">school</span>
             <p className="text-gray-700 text-base leading-relaxed">Buscas una disciplina que no requiera conocimiento ni experiencia previa.</p>
           </div>
           <div className="flex items-start p-4 bg-cream-white rounded-lg shadow-md border-terracotta">

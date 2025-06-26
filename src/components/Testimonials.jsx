@@ -12,7 +12,7 @@ export default function Testimonials() {
               <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
               <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
             </div>
-            <p className="italic text-lg mb-4 text-gray-700">"Las clases con Tamara en Las Condes cambiaron mi vida. Me siento más fuerte y mi dolor de espalda casi desapareció. ¡Tamara es increíble!"</p>
+            <p className="italic text-lg mb-4 text-gray-700">"Las clases de Elastic Training con Tamara en Las Condes transformaron mi cuerpo. Me siento más fuerte y mi dolor de espalda casi desapareció. ¡Tamara es increíble!"</p>
             <footer className="font-semibold text-gray-900">– Sofía C., Las Condes, Santiago</footer>
           </blockquote>
           <blockquote className="bg-golden-beige p-8 rounded-xl shadow-lg hover-scale border-terracotta">
@@ -23,7 +23,7 @@ export default function Testimonials() {
               <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
               <span className="material-icons-outlined text-yellow-500 text-xl" aria-label="5 estrellas">star</span>
             </div>
-            <p className="italic text-lg mb-4 text-gray-700">"La clase gratuita con Tamara superó mis expectativas. Es relajante y efectivo. ¡100% recomendado!"</p>
+            <p className="italic text-lg mb-4 text-gray-700">"La clase gratuita de Elastic Training con Tamara superó mis expectativas. Es dinámico y efectivo. ¡100% recomendado!"</p>
             <footer className="font-semibold text-gray-900">– Martín B., Las Condes, Santiago</footer>
           </blockquote>
         </div>
@@ -41,10 +41,10 @@ export default function Testimonials() {
                 "@type": "Person",
                 "name": "Sofía C."
               },
-              "reviewBody": "Las clases con Tamara en Las Condes cambiaron mi vida. Me siento más fuerte y mi dolor de espalda casi desapareció. ¡Tamara es increíble!",
+              "reviewBody": "Las clases de Elastic Training con Tamara en Las Condes transformaron mi cuerpo. Me siento más fuerte y mi dolor de espalda casi desapareció. ¡Tamara es increíble!",
               "itemReviewed": {
                 "@type": "LocalBusiness",
-                "name": "Vie Balance Pilates Studio"
+                "name": "Vie Balance Elastic Training Studio"
               }
             }
           `}
