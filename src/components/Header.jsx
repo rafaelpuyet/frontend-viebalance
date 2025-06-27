@@ -35,7 +35,7 @@ export default function Header() {
             <li><Link href="/" className="text-gray-700 hover:text-accent-orange" onClick={toggleMenu}>Inicio</Link></li>
             <li><Link href="/elastic-training" className="text-gray-700 hover:text-accent-orange" onClick={toggleMenu}>Elastic Training</Link></li>
             <li><Link href="/pilates" className="text-gray-700 hover:text-accent-orange" onClick={toggleMenu}>Pilates</Link></li>
-            <li><Link href="/trial-class" className="text-gray-700 hover:text-accent-orange" onClick={toggleMenu}>Clase Gratis</Link></li>
+            <li><Link href="/clase-gratis" className="text-gray-700 hover:text-accent-orange" onClick={toggleMenu}>Clase Gratis</Link></li>
           </ul>
         </nav>
       )}
