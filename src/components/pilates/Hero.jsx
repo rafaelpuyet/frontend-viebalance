@@ -5,7 +5,7 @@ import HeroIMG from '@public/hero.png'
 
 export default function Hero() {
   return (
-    <section className="relative py-10 px-6 lg:px-8 bg-cream-gradient">
+    <section className="relative min-h-screen py-30 px-6 lg:px-8 bg-cream-gradient">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0"
           style={{

@@ -8,7 +8,7 @@ const supabase = createClient(
 
 export async function POST(req) {
   try {
-    const { first_name, last_name, email, phone, source, preferred_time } = await req.json();
+    const { first_name, last_name, email, phone, source, preferred_time, class_type } = await req.json();
 
     // Validaciones backend
     if (!first_name || first_name.trim().length < 2) {
@@ -31,7 +31,7 @@ export async function POST(req) {
         status: 400,
       });
     }
-    if (!source || !['instagram', 'google', 'recomendacion', 'facebook', 'otro'].includes(source)) {
+    if (!source || !['instagram', 'tiktok', 'youtube', 'google', 'recomendacion', 'facebook', 'sitio-web', 'otro'].includes(source)) {
       return new Response(JSON.stringify({ error: 'Selecciona una fuente válida' }), {
         status: 400,
       });
@@ -41,18 +41,26 @@ export async function POST(req) {
         status: 400,
       });
     }
+    if (!class_type || !['pilates', 'elastic-training'].includes(class_type)) {
+      return new Response(JSON.stringify({ error: 'Selecciona un tipo de clase válido' }), {
+        status: 400,
+      });
+    }
 
-    // Verificar si el email ya existe
+    // Verificar si ya existe una reserva para el mismo email o teléfono y tipo de clase
     const { data: existing } = await supabase
       .from('trial_reservations')
-      .select('email')
-      .eq('email', email)
+      .select('email, phone, class_type')
+      .or(`email.eq.${email},phone.eq.${phone}`)
+      .eq('class_type', class_type)
       .single();
 
     if (existing) {
-      return new Response(JSON.stringify({ error: 'Este correo ya está registrado' }), {
-        status: 409,
-      });
+      const className = class_type === 'pilates' ? 'Pilates' : 'Elastic Training';
+      return new Response(
+        JSON.stringify({ error: `Ya has reservado una clase gratuita de ${className}` }),
+        { status: 409 }
+      );
     }
 
     // Guardar en Supabase
@@ -64,6 +72,7 @@ export async function POST(req) {
         phone,
         source,
         preferred_time,
+        class_type,
         status: 'pending',
       },
     ]);
@@ -72,27 +81,27 @@ export async function POST(req) {
       return new Response(JSON.stringify({ error: 'Error al guardar los datos' }), { status: 500 });
     }
 
-    /* Enviar mensaje de WhatsApp con WAHA
     try {
-      const chatId = phone.replace('+', '') + '@c.us'; // e.g., +56912345678 -> 56912345678@c.us
+      const chatId = phone.replace('+', '') + '@c.us';
+      const className = class_type === 'pilates' ? 'Pilates' : 'Elastic Training';
       await axios.post(
-        'http://localhost:3000/api/sendText',
+        'http://ec2-52-14-105-173.us-east-2.compute.amazonaws.com:3030/api/sendText',
         {
           chatId,
-          text: `¡Gracias por reservar tu clase gratuita en Vie Balance Pilates, ${first_name}! Tamara se contactará pronto.`,
+          text: `¡Gracias por reservar tu clase gratuita de ${className} en Vie Balance, ${first_name}! Nos contactaremos pronto!.`,
           session: 'default',
         },
         {
           headers: {
             'Content-Type': 'application/json',
-            // Opcional: 'X-Api-Key': process.env.WAHA_API_KEY,
+            'X-Api-Key': process.env.WAHA_API_KEY,
           },
         }
       );
     } catch (wahaError) {
       console.error('Error enviando mensaje de WhatsApp:', wahaError.message);
       // No fallar la respuesta principal si WAHA falla
-    }*/
+    }
 
     return new Response(JSON.stringify({ message: 'Formulario enviado con éxito' }), {
       status: 200,

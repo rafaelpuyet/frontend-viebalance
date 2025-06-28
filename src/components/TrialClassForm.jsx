@@ -1,7 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function TrialClassForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -9,12 +11,24 @@ export default function TrialClassForm() {
     phone: '',
     source: 'instagram',
     preferred_time: 'morning',
+    class_type: 'pilates',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [errors, setErrors] = useState({});
+
+  // Pre-fill form from URL query parameters
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get('source');
+    const class_type = params.get('class_type');
+    setFormData((prev) => ({
+      ...prev,
+      source: source && ['instagram', 'google', 'recomendacion', 'facebook', 'tiktok', 'youtube', 'sitio-web', 'otro'].includes(source) ? source : prev.source,
+      class_type: class_type && ['pilates', 'elastic-training'].includes(class_type) ? class_type : prev.class_type,
+    }));
+  }, []);
 
   const validateField = (name, value) => {
     const newErrors = { ...errors };
@@ -43,6 +57,11 @@ export default function TrialClassForm() {
     } else if (name === 'preferred_time') {
       delete newErrors.preferred_time;
     }
+    if (name === 'class_type' && !['pilates', 'elastic-training'].includes(value)) {
+      newErrors.class_type = 'Selecciona una clase válida';
+    } else if (name === 'class_type') {
+      delete newErrors.class_type;
+    }
     setErrors(newErrors);
   };
 
@@ -53,7 +72,7 @@ export default function TrialClassForm() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/submit-form', {
+      const response = await fetch('/api/submit-trial-class-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -72,6 +91,7 @@ export default function TrialClassForm() {
           phone: '',
           source: 'instagram',
           preferred_time: 'morning',
+          class_type: 'pilates',
         });
       } else {
         setIsSubmitting(false);
@@ -91,23 +111,18 @@ export default function TrialClassForm() {
 
   if (showSuccess) {
     return (
-      <section className="py-16 px-6 md:px-10 bg-cream-beige min-h-screen flex items-center">
+      <section className="py-30 px-6 md:px-10 bg-cream-beige min-h-screen flex items-center">
         <div className="max-w-2xl mx-auto text-center">
           <div className="bg-cream-white rounded-xl shadow-2xl p-8 border-terracotta">
             <span className="material-icons-outlined text-accent-orange text-6xl mb-4 block">
               check_circle
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">¡Perfecto!</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">¡Solicitud Recibida!</h2>
             <p className="text-lg text-gray-700 mb-6">
-              {formData.first_name}, hemos recibido tu solicitud, en breve nos contactaremos contigo dentro de 24 horas.
+              {formData.first_name}, hemos recibido tu solicitud para una clase gratuita de{' '}
+              {formData.class_type === 'pilates' ? 'Pilates' : 'Elastic Training'}.
+              Nos contactaremos contigo dentro de las próximas 24 horas.
             </p>
-            <div className="bg-golden-beige rounded-lg p-4">
-              <p className="text-sm text-gray-900">
-                <span className="material-icons-outlined text-sm mr-1">info</span>
-                Mientras tanto, puedes llamarnos al <strong>+56 9 8765 4321</strong> si tienes alguna
-                pregunta urgente.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -115,15 +130,14 @@ export default function TrialClassForm() {
   }
 
   return (
-    <section className="py-16 px-6 md:px-10 bg-cream-beige min-h-screen flex items-center">
+    <section className="py-30 px-6 md:px-10 bg-cream-beige min-h-screen flex items-center">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
             Reserva Tu Clase Gratuita
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Experimenta los beneficios del Pilates Reformer con Tamara. La primera clase es
-            completamente gratuita y sin compromiso.
+            Prueba una sesión personalizada de Pilates o Elastic Training. ¡Gratis y sin compromiso!
           </p>
         </div>
 
@@ -242,6 +256,30 @@ export default function TrialClassForm() {
             </div>
 
             <div>
+              <label htmlFor="class_type" className="block text-sm font-semibold text-gray-900 mb-2">
+                Tipo de Clase *
+              </label>
+              <select
+                id="class_type"
+                name="class_type"
+                required
+                value={formData.class_type}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 bg-white border border-gray-300 rounded-xl shadow-sm text-gray-900 focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 appearance-none ${
+                  errors.class_type ? 'border-red-500' : ''
+                }`}
+                aria-describedby={errors.class_type ? 'class_type-error' : undefined}
+              >
+                <option value="" disabled>Selecciona una clase</option>
+                <option value="pilates">Pilates</option>
+                <option value="elastic-training">Elastic Training</option>
+              </select>
+              {errors.class_type && (
+                <p id="class_type-error" className="text-red-500 text-xs mt-1">{errors.class_type}</p>
+              )}
+            </div>
+
+            <div>
               <label htmlFor="source" className="block text-sm font-semibold text-gray-900 mb-2">
                 ¿Dónde nos encontraste?
               </label>
@@ -255,9 +293,11 @@ export default function TrialClassForm() {
                 }`}
               >
                 <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
                 <option value="google">Google</option>
-                <option value="recomendacion">Recomendación de un amigo</option>
                 <option value="facebook">Facebook</option>
+                <option value="recomendacion">Recomendación de un amigo</option>
+                <option value="sitio-web">Sitio Web</option>
                 <option value="otro">Otro</option>
               </select>
             </div>
@@ -277,6 +317,7 @@ export default function TrialClassForm() {
                 className={`w-full px-4 py-3 bg-white border border-gray-300 rounded-xl shadow-sm text-gray-900 focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-200 appearance-none ${
                   errors.preferred_time ? 'border-red-500' : ''
                 }`}
+                aria-describedby={errors.preferred_time ? 'preferred_time-error' : undefined}
               >
                 <option value="morning">Mañana</option>
                 <option value="afternoon">Tarde</option>
@@ -291,7 +332,7 @@ export default function TrialClassForm() {
             <button
               type="submit"
               disabled={isSubmitting || Object.keys(errors).length > 0}
-              className="w-full h-14 bg-accent-orange text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-terracotta transition-all duration-200 flex items-center justify-center cursor-pointer"
+              className="w-full h-14 bg-accent-orange text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-terracotta transition-all duration-200 flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
@@ -308,8 +349,7 @@ export default function TrialClassForm() {
           </div>
 
           <p className="text-xs text-gray-600 mt-4 text-center">
-            * Al enviar este formulario, aceptas que Tamara se contacte contigo para coordinar tu clase
-            gratuita.
+            * Al enviar este formulario, aceptas que Vie Balance se contacte contigo para coordinar tu clase gratuita.
           </p>
         </form>
       </div>

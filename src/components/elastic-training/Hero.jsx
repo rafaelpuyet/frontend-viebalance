@@ -5,7 +5,7 @@ import HeroIMG from '@public/hero.png'
 
 export default function Hero() {
   return (
-    <section className="relative py-10 px-6 lg:px-8 bg-cream-gradient">
+    <section className="relative min-h-screen py-30 px-6 lg:px-8 bg-cream-gradient">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g fill-opacity=0.1><circle cx=30 cy=30 r=3/></g></g></svg>")', backgroundSize: '60px 60px' }}></div>
       </div>
