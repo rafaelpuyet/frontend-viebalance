@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import axios from 'axios';
+import { couldStartTrivia } from 'typescript';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -85,7 +86,7 @@ export async function POST(req) {
       const chatId = phone.replace('+', '') + '@c.us';
       const className = class_type === 'pilates' ? 'Pilates' : 'Elastic Training';
       await axios.post(
-        'http://ec2-52-14-105-173.us-east-2.compute.amazonaws.com:3030/api/sendText',
+        'http://ec2-3-16-81-94.us-east-2.compute.amazonaws.com:3030/api/sendText',
         {
           chatId,
           text: `¡Gracias por reservar tu clase gratuita de ${className} en Vie Balance, ${first_name}! Nos contactaremos pronto!.`,

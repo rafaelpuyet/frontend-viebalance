@@ -13,6 +13,7 @@ export default function TrialClassForm() {
     preferred_time: 'morning',
     class_type: 'pilates',
   });
+  const [submittedData, setSubmittedData] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -67,11 +68,17 @@ export default function TrialClassForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Object.keys(errors).length > 0) return;
+    if (Object.keys(errors).length > 0) {
+      setIsSubmitting(false);
+      return;
+    }
     setIsSubmitting(true);
     setErrorMessage('');
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+
       const response = await fetch('/api/submit-trial-class-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -79,10 +86,15 @@ export default function TrialClassForm() {
           ...formData,
           phone: `+56${formData.phone.replace(/\s/g, '')}`,
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
       const data = await response.json();
+      setIsSubmitting(false);
+
       if (response.ok) {
-        setIsSubmitting(false);
+        setSubmittedData(formData);
         setShowSuccess(true);
         setFormData({
           first_name: '',
@@ -94,12 +106,15 @@ export default function TrialClassForm() {
           class_type: 'pilates',
         });
       } else {
-        setIsSubmitting(false);
         setErrorMessage(data.error || 'Error al enviar el formulario. Por favor, intenta de nuevo.');
       }
     } catch (error) {
       setIsSubmitting(false);
-      setErrorMessage('Error al enviar el formulario. Por favor, intenta de nuevo.');
+      if (error.name === 'AbortError') {
+        setErrorMessage('La solicitud tardó demasiado. Por favor, intenta de nuevo.');
+      } else {
+        setErrorMessage('Error de conexión. Por favor, verifica tu internet e intenta de nuevo.');
+      }
     }
   };
 
@@ -119,8 +134,8 @@ export default function TrialClassForm() {
             </span>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">¡Solicitud Recibida!</h2>
             <p className="text-lg text-gray-700 mb-6">
-              {formData.first_name}, hemos recibido tu solicitud para una clase gratuita de{' '}
-              {formData.class_type === 'pilates' ? 'Pilates' : 'Elastic Training'}.
+              {submittedData?.first_name || 'Usuario'}, hemos recibido tu solicitud para una clase gratuita de{' '}
+              {submittedData?.class_type === 'pilates' ? 'Pilates' : 'Elastic Training'}.
               Nos contactaremos contigo dentro de las próximas 24 horas.
             </p>
           </div>
